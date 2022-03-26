@@ -4,7 +4,7 @@ const int N = 1e6 + 1;
 
 vector<int> spf(N);
 
-void seive() {
+void sieve() {
     for (long long i = 0; i < N; i++) {
         spf[i] = i;
     }
