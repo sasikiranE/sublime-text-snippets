@@ -53,7 +53,22 @@ struct segmentTree {
         long long s2 = solve(l, r, 2 * x + 1, m + 1, rx);
         return merge(s1, s2);
     }
+
+    long long find(int k) {
+        return find(k, 1, 0, size - 1);
+    }
+
+    long long find(int k, int x, int lx, int rx) {
+        if (lx == rx) {
+            return lx;
+        }
+        int m = lx + (rx - lx) / 2;
+        int sl = tree[2 * x];
+        if (k <= sl) return find(k, 2 * x, lx, m);
+        else return find(k - sl, 2 * x + 1, m + 1, rx);
+    }
 };
+
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
