@@ -1,0 +1,31 @@
+<snippet>
+	<content><![CDATA[
+const int N = 1e6 + 1;
+vector<int> spf(N);
+
+void sieveSpf() {
+    for (long long i = 1; i < N; i++) spf[i] = i;
+    for (long long i = 4; i < N; i += 2) spf[i] = 2;
+    for (long long i = 3; i * i < N; i++) {
+        if (spf[i] == i) {
+            for (long long j = i * i; j < N; j += i) {
+                if (spf[j] == j) spf[j] = i;
+            }
+        }
+    }
+}
+
+map<int, int> getFactorization(int n) {
+    map<int, int> ans;
+    while (n != 1) {
+        ans[spf[n]]++;
+        n /= spf[n];
+    }
+    return ans;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>spf</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
