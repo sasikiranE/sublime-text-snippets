@@ -4,10 +4,12 @@
 using namespace std;
 typedef long long ll;
 typedef vector<int> vi;
+typedef vector<long long> vll;
+typedef pair<long long, long long> pll;
 typedef pair<int, int> pi;
-#define all(a) a.begin(), a.end()
-#define rep(i, a, b) for(int i = a; i < b; i++)
-#define repr(i, a, b) for(int i = a - 1; i >= b; i--)
+#define all(_a) _a.begin(), _a.end()
+#define read(_a) for (auto &e : _a) cin >> e;
+#define print(_a) for (auto &e : _a) cout << e << " ";
 const int Mod = 1e9 + 7;
 
 void testCase() {
@@ -22,6 +24,7 @@ int main() {
     }
     return 0;
 }
+
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>hello</tabTrigger>
