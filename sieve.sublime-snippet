@@ -1,19 +1,15 @@
 <snippet>
 	<content><![CDATA[
-const int N = 1e6 + 1;
+const int N = 1e8;
 
-vector<int> spf(N);
+vector<char> isPrime(N, true);
 
 void sieve() {
-    for (long long i = 0; i < N; i++) {
-        spf[i] = i;
-    }
-    for (long long i = 2; i < N; i++) {
-        if (spf[i] == i) {
-            for (long long j = i * i; j < N; j += i) {
-                if (spf[j] == j) spf[j] = i;
-            }
-        }  
+    isPrime[0] = isPrime[1] = false;
+    for (ll i = 2; i * i < N; i++) {
+        if (isPrime[i]) {
+            for (ll j = i * i; j < N; j += i) isPrime[j] = false;
+        }
     }
 }
 ]]></content>
